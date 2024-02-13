@@ -28,7 +28,6 @@ const calculateAverage = () => {
     let sum = 0;
     grades.forEach((grade) => {
         sum += grade});
-    console.log(sum);
     const average = Math.round(sum / grades.length);
 
     const secondParagraph = document.createElement('p');
