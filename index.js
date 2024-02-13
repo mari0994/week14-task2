@@ -1,5 +1,7 @@
 const container = document.querySelector('.container');
 
+const results = [];
+
 const grades = [
     Math.floor(Math.random() * 100) + 1,
     Math.floor(Math.random() * 100) + 1,
@@ -14,28 +16,22 @@ const grades = [
     Math.floor(Math.random() * 100) + 1,
     Math.floor(Math.random() * 100) + 1,
 ];
-//console.log(grades);
 
-const showGrades = () => {
-    const firstParagraph = document.createElement('p');
-    firstParagraph.textContent = `Студенты получили следующие оценки: ${grades.join(', ')}.`;
-    container.append(firstParagraph);
+const addGradesInfo = () => {
+    const gradesInfo = `Студенты получили следующие оценки: ${grades.join(', ')}.`;
+    results.push(gradesInfo);
 };
-
-showGrades();
+addGradesInfo();
 
 //Рассчитайте и выведите средний балл студентов, используя методы массивов.
 const calculateAverage = () => {
     let sum = 0;
     grades.forEach((grade) => {
         sum += grade});
-    console.log(sum);
     const average = Math.round(sum / grades.length);
-    //console.log(average); 
 
-    const secondParagraph = document.createElement('p');
-    secondParagraph.textContent = `Средний балл студентов: ${average}.`;
-    container.append(secondParagraph);  
+    const averageInfo = `Средний балл студентов: ${average}.`;
+    results.push(averageInfo);  
 }
 calculateAverage();
 
@@ -44,11 +40,9 @@ const findMaxGrade = () => {
     const gradesCopy = [...grades];
     const gradesCopySorted = gradesCopy.sort((a,b) => b-a);
     const maxNumber = gradesCopySorted[0];
-    //console.log(maxNumber);
 
-    const thirdParagraph = document.createElement('p');
-    thirdParagraph.textContent = `Максимальный балл студентов: ${maxNumber}.`;
-    container.append(thirdParagraph);
+    const maxGradeInfo = `Максимальный балл студентов: ${maxNumber}.`;
+    results.push(maxGradeInfo);
 };
 
 findMaxGrade();
@@ -59,11 +53,9 @@ const findMinGrade = () => {
     const gradesCopy = [...grades];
     const gradesCopySorted = gradesCopy.sort((a,b) => a-b);
     const minNumber = gradesCopySorted[0];
-    //console.log(minNumber);
 
-    const fourthParagraph = document.createElement('p');
-    fourthParagraph.textContent = `Минимальный балл студентов: ${minNumber}.`;
-    container.append(fourthParagraph);
+    const minGradeInfo = `Минимальный балл студентов: ${minNumber}.`;
+    results.push(minGradeInfo);
 };
 
 findMinGrade();
@@ -73,11 +65,9 @@ findMinGrade();
 const calculateQuantityOfPositiveGrades = () => {
     const positiveGrades = grades.filter((grade) => grade>=60);
     const quantityOfPositiveGrades = positiveGrades.length;
-    //console.log(quantityOfPositiveGrades);
 
-    const fifthParagraph = document.createElement('p');
-    fifthParagraph.textContent = `Количество студентов, получивших положительную оценку: ${quantityOfPositiveGrades}.`;
-    container.append(fifthParagraph);
+    const maxStudentsQuantity = `Количество студентов, получивших положительную оценку: ${quantityOfPositiveGrades}.`;
+    results.push(maxStudentsQuantity);
 };
 
 calculateQuantityOfPositiveGrades();
@@ -87,11 +77,9 @@ calculateQuantityOfPositiveGrades();
 const calculateQuantityOfNegativeGrades = () => {
     const negativeGrades = grades.filter((grade) => grade<=60);
     const quantityOfNegativeGrades = negativeGrades.length;
-    //console.log(quantityOfNegativeGrades);
 
-    const sixthParagraph = document.createElement('p');
-    sixthParagraph.textContent = `Количество студентов, получивших отрицательную оценку: ${quantityOfNegativeGrades}.`;
-    container.append(sixthParagraph);
+    const minStudentsQuantity = `Количество студентов, получивших отрицательную оценку: ${quantityOfNegativeGrades}.`;
+    results.push(minStudentsQuantity);
 };
 
 calculateQuantityOfNegativeGrades();
@@ -121,11 +109,18 @@ const assignLettersToGrades = () => {
             return 'E';
         }
     });
-    //console.log(gradesAsLetters);
 
-    const seventhParagraph = document.createElement('p');
-    seventhParagraph.textContent = `Оценки студентов в буквенном формате: ${gradesAsLetters.join(', ')}.`;
-    container.append(seventhParagraph);
+    const gradesAsLettersInfo = `Оценки студентов в буквенном формате: ${gradesAsLetters.join(', ')}.`;
+    results.push(gradesAsLettersInfo);
 };
 
 assignLettersToGrades();
+
+const addResultsToPage = () => {
+    results.forEach((result) => {
+        const paragraph = document.createElement('p');
+        paragraph.textContent = result;
+        container.append(paragraph);
+    }); 
+};
+addResultsToPage();
