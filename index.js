@@ -14,7 +14,6 @@ const grades = [
     Math.floor(Math.random() * 100) + 1,
     Math.floor(Math.random() * 100) + 1,
 ];
-//console.log(grades);
 
 const showGrades = () => {
     const firstParagraph = document.createElement('p');
@@ -31,7 +30,6 @@ const calculateAverage = () => {
         sum += grade});
     console.log(sum);
     const average = Math.round(sum / grades.length);
-    //console.log(average); 
 
     const secondParagraph = document.createElement('p');
     secondParagraph.textContent = `Средний балл студентов: ${average}.`;
@@ -44,7 +42,6 @@ const findMaxGrade = () => {
     const gradesCopy = [...grades];
     const gradesCopySorted = gradesCopy.sort((a,b) => b-a);
     const maxNumber = gradesCopySorted[0];
-    //console.log(maxNumber);
 
     const thirdParagraph = document.createElement('p');
     thirdParagraph.textContent = `Максимальный балл студентов: ${maxNumber}.`;
@@ -59,7 +56,6 @@ const findMinGrade = () => {
     const gradesCopy = [...grades];
     const gradesCopySorted = gradesCopy.sort((a,b) => a-b);
     const minNumber = gradesCopySorted[0];
-    //console.log(minNumber);
 
     const fourthParagraph = document.createElement('p');
     fourthParagraph.textContent = `Минимальный балл студентов: ${minNumber}.`;
@@ -73,7 +69,6 @@ findMinGrade();
 const calculateQuantityOfPositiveGrades = () => {
     const positiveGrades = grades.filter((grade) => grade>=60);
     const quantityOfPositiveGrades = positiveGrades.length;
-    //console.log(quantityOfPositiveGrades);
 
     const fifthParagraph = document.createElement('p');
     fifthParagraph.textContent = `Количество студентов, получивших положительную оценку: ${quantityOfPositiveGrades}.`;
@@ -87,7 +82,6 @@ calculateQuantityOfPositiveGrades();
 const calculateQuantityOfNegativeGrades = () => {
     const negativeGrades = grades.filter((grade) => grade<=60);
     const quantityOfNegativeGrades = negativeGrades.length;
-    //console.log(quantityOfNegativeGrades);
 
     const sixthParagraph = document.createElement('p');
     sixthParagraph.textContent = `Количество студентов, получивших отрицательную оценку: ${quantityOfNegativeGrades}.`;
@@ -121,7 +115,6 @@ const assignLettersToGrades = () => {
             return 'E';
         }
     });
-    //console.log(gradesAsLetters);
 
     const seventhParagraph = document.createElement('p');
     seventhParagraph.textContent = `Оценки студентов в буквенном формате: ${gradesAsLetters.join(', ')}.`;
