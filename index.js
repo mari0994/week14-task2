@@ -42,6 +42,9 @@ const findMaxGrade = () => {
     const gradesCopySorted = gradesCopy.sort((a,b) => b-a);
     const maxNumber = gradesCopySorted[0];
 
+    //или
+    //const maxNumber = Math.max(...grades); 
+
     const thirdParagraph = document.createElement('p');
     thirdParagraph.textContent = `Максимальный балл студентов: ${maxNumber}.`;
     container.append(thirdParagraph);
@@ -55,6 +58,9 @@ const findMinGrade = () => {
     const gradesCopy = [...grades];
     const gradesCopySorted = gradesCopy.sort((a,b) => a-b);
     const minNumber = gradesCopySorted[0];
+
+    //или
+    // const minNumber = Math.min(...grades); 
 
     const fourthParagraph = document.createElement('p');
     fourthParagraph.textContent = `Минимальный балл студентов: ${minNumber}.`;
@@ -79,7 +85,7 @@ calculateQuantityOfPositiveGrades();
 //Посчитайте и выведите количество студентов, получивших отрицательную оценку (балл ниже 60). Используйте аналогичный подход, как в предыдущем шаге.
 
 const calculateQuantityOfNegativeGrades = () => {
-    const negativeGrades = grades.filter((grade) => grade<=60);
+    const negativeGrades = grades.filter((grade) => grade<60);
     const quantityOfNegativeGrades = negativeGrades.length;
 
     const sixthParagraph = document.createElement('p');
